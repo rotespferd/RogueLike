@@ -27,6 +27,10 @@ public class GameObjectFactory {
     
     private static int blockSize = 50;
     
+    private static String versionNumber = "0.02";
+    
+    private static String versionCodename = "Wallenhorst";  //Codename: A33 Anschlußstellen (siehe Wikipedia)
+    
     public static int getId(){
         nextId++;
         return nextId;
@@ -34,6 +38,14 @@ public class GameObjectFactory {
     
     public static int getBlockSize(){
         return blockSize;
+    }
+
+    public static String getVersionNumber() {
+        return versionNumber;
+    }
+
+    public static String getVersionCodename() {
+        return versionCodename;
     }
     
 }
