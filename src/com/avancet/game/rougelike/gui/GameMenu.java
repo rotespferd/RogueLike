@@ -37,7 +37,9 @@ public class GameMenu extends javax.swing.JFrame {
         logo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         menu = new javax.swing.JPanel();
+        menuGrid = new javax.swing.JPanel();
         gameName = new javax.swing.JLabel();
+        gameVersion = new javax.swing.JPanel();
         versionNumber = new javax.swing.JLabel();
         versionCodename = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -45,8 +47,11 @@ public class GameMenu extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         credits = new javax.swing.JPanel();
         license = new javax.swing.JLabel();
+        from = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Droid Sans", 1, 48)); // NOI18N
         jLabel1.setText("LogoPlaceHolder");
@@ -57,19 +62,25 @@ public class GameMenu extends javax.swing.JFrame {
         menu.setBorder(new javax.swing.border.MatteBorder(null));
         menu.setLayout(new javax.swing.BoxLayout(menu, javax.swing.BoxLayout.Y_AXIS));
 
+        menuGrid.setLayout(new java.awt.GridLayout(5, 1));
+
         gameName.setFont(new java.awt.Font("DejaVu Sans", 1, 36)); // NOI18N
         gameName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gameName.setText("RougeLike");
         gameName.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menu.add(gameName);
+        menuGrid.add(gameName);
+
+        gameVersion.setLayout(new java.awt.GridLayout(1, 2));
 
         versionNumber.setText("versionNumber");
         versionNumber.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menu.add(versionNumber);
+        gameVersion.add(versionNumber);
 
         versionCodename.setText("versionCodename");
         versionCodename.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menu.add(versionCodename);
+        gameVersion.add(versionCodename);
+
+        menuGrid.add(gameVersion);
 
         jButton1.setText("Start");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -78,22 +89,27 @@ public class GameMenu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        menu.add(jButton1);
+        menuGrid.add(jButton1);
 
         jButton2.setText("Options");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menu.add(jButton2);
+        menuGrid.add(jButton2);
 
         jButton3.setText("Quit");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menu.add(jButton3);
+        menuGrid.add(jButton3);
+
+        menu.add(menuGrid);
 
         getContentPane().add(menu, java.awt.BorderLayout.CENTER);
 
-        credits.setLayout(new javax.swing.BoxLayout(credits, javax.swing.BoxLayout.LINE_AXIS));
+        credits.setLayout(new javax.swing.BoxLayout(credits, javax.swing.BoxLayout.PAGE_AXIS));
 
         license.setText("License under the GPL Version 3.");
         credits.add(license);
+
+        from.setText("from Marian Sievers, made with Java, Swing, Netbeans, Xubuntu");
+        credits.add(from);
 
         getContentPane().add(credits, java.awt.BorderLayout.PAGE_END);
 
@@ -141,7 +157,9 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel credits;
+    private javax.swing.JLabel from;
     private javax.swing.JLabel gameName;
+    private javax.swing.JPanel gameVersion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -149,6 +167,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JLabel license;
     private javax.swing.JPanel logo;
     private javax.swing.JPanel menu;
+    private javax.swing.JPanel menuGrid;
     private javax.swing.JLabel versionCodename;
     private javax.swing.JLabel versionNumber;
     // End of variables declaration//GEN-END:variables

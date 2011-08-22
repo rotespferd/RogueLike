@@ -18,9 +18,11 @@
 package com.avancet.game.rougelike.helper;
 
 import com.avancet.game.rougelike.GameWorld;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.Reader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,11 +43,33 @@ public class MapLoader {
             return null;
         }
         try {
-            Reader fileReader = new FileReader(mapFIle);
+            FileReader reader = new FileReader(mapFIle);
+            BufferedReader buffer = new BufferedReader(reader);
+            
+            //Laden der Hoehe und Breite
+            String zeile1 = buffer.readLine();
+            String[] splitZ1 = zeile1.split(",");
+            
+            int height = Integer.parseInt(splitZ1[0].split(":")[1]);
+            int width = Integer.parseInt(splitZ1[1].split(":")[1]);
+            
+            System.out.println("Height: " + height + ", Width: " + width);
+            
+            world = new GameWorld(width, height);
+            
+            //Laden der Map
+            
+            String next = null;
+            
+            while((next = buffer.readLine()) != null){
+                
+            }
             
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MapLoader.class.getName()).log(Level.SEVERE, null, ex);
+        } catch(IOException ex){
+             Logger.getLogger(MapLoader.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return world;
