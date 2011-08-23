@@ -33,7 +33,7 @@ public class GameWindow extends JFrame {
     
     public GameWindow(){
         super("RougeLike");
-        map = new GameMap(6, 8);
+        map = new GameMap("map2");
         
         JPanel gamePanel = new JPanel();
         gamePanel.setLayout(new BoxLayout(gamePanel,BoxLayout.Y_AXIS));

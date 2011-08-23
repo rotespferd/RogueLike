@@ -31,6 +31,10 @@ public class GameWorld {
     public GameWorld(int width, int height){
         world = new PhysicalObject[height][width];
     }
+    
+    public GameWorld(){
+    	
+    }
 
     /**
      * @return the world

@@ -21,6 +21,8 @@ import com.avancet.game.rougelike.blocks.WallBlock;
 import com.avancet.game.rougelike.basic.GameObjectFactory;
 import com.avancet.game.rougelike.basic.PhysicalObject;
 import com.avancet.game.rougelike.blocks.Block;
+import com.avancet.game.rougelike.helper.MapLoader;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
@@ -37,14 +39,25 @@ public class GameMap extends JPanel {
     
     private int height;
     
+    private String mapName;
+    
     public final int BLOCKSIZE = GameObjectFactory.getBlockSize();
     
-    public GameMap(int width, int height){
+    public GameMap(int width, int height, String mapName){
         super();
         this.width = width;
         this.height = height;
+        this.mapName = mapName;
         this.world = new GameWorld(this.width, this.height);
         init();
+    }
+    
+    public GameMap(String mapName){
+    	super();
+    	this.mapName = mapName;
+    	init();
+    	this.width = this.world.getWorld().length;
+    	this.height = this.world.getWorld()[0].length;
     }
     
     @Override
@@ -62,19 +75,7 @@ public class GameMap extends JPanel {
     }
     
     private void init() {
-        for(int widthP = 0; widthP < world.getWorld().length; widthP++){
-            for(int heightP = 0; heightP < world.getWorld()[widthP].length; heightP++){
-                
-                world.getWorld()[widthP][heightP] = ((heightP + widthP) % 2) > 0 ?  new PhysicalObject(heightP,widthP) : new WallBlock(heightP, widthP);
-                
-                
-                world.getWorld()[widthP][heightP].setVisible(true);
-            }
-        }
-//        Block b = new Block(2,3);
-//        b.setBackgroundColor(Color.RED);
-//        b.setVisible(true);
-//        world.getWorld()[2][3] = b;
+        this.world = MapLoader.getGameWorldFromFIle(this.mapName + ".map");
     }
     
 }

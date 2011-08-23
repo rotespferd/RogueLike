@@ -18,6 +18,11 @@
 package com.avancet.game.rougelike.helper;
 
 import com.avancet.game.rougelike.GameWorld;
+import com.avancet.game.rougelike.basic.GameObject;
+import com.avancet.game.rougelike.basic.PhysicalObject;
+import com.avancet.game.rougelike.blocks.Block;
+import com.avancet.game.rougelike.blocks.WallBlock;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -61,8 +66,17 @@ public class MapLoader {
             
             String next = null;
             
+            //Line of array
+            int line = 0;
+            
+            //Parsen der einzelnen Zeilen der map-Datei
             while((next = buffer.readLine()) != null){
-                
+                char[] lineArray = next.toCharArray();
+                for (int i = 0; i < width; i++){
+                	world.getWorld()[line][i] = parseSymbol(lineArray[i],line,i);
+                	world.getWorld()[line][i].setVisible(true);
+                }
+                line++;
             }
             
             
@@ -73,6 +87,15 @@ public class MapLoader {
         }
         
         return world;
+    }
+    
+    private static PhysicalObject parseSymbol(char symbol, int height, int width){
+    	PhysicalObject obj = null;
+    	
+    	if ('+' == symbol) obj = new WallBlock(height, width);
+    	else obj = new Block(height,width);
+    	
+    	return obj;
     }
     
 }
