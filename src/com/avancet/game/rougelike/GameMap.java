@@ -65,9 +65,10 @@ public class GameMap extends JPanel {
         super.paintComponents(g);
         g.drawRect(5, 5, 10 + this.height * BLOCKSIZE + 10, 10 + this.width * BLOCKSIZE + 10); //+10 an jeder Seite wegen Abstand
         
-        for(int w = 0; w < world.getWorld().length;w++){
-            for(int h = 0; h < world.getWorld()[w].length; h++){
-                this.world.getWorld()[w][h].paint(g);
+        for(int h = 0; h < world.getWorld().length;h++){
+            for(int w = 0; w < world.getWorld()[h].length; w++){
+            	this.world.getWorldElement(h, w).paint(g);
+                //this.world.getWorld()[w][h].paint(g);
                 //g.drawRect(w*BLOCKSIZE+15, h*BLOCKSIZE+15, BLOCKSIZE, BLOCKSIZE);
                 //Später ersetzen durch Zeichenmethode der einzelnen Blocks. ALs Parameter Position übergeben, wie oben.
             }

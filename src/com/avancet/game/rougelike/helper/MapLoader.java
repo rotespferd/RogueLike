@@ -74,8 +74,9 @@ public class MapLoader {
             while((next = buffer.readLine()) != null){
                 char[] lineArray = next.toCharArray();
                 for (int i = 0; i < width; i++){
-                	world.getWorld()[line][i] = parseSymbol(lineArray[i],line,i);
-                	world.getWorld()[line][i].setVisible(true);
+                	world.setWorldElement(line, i, parseSymbol(lineArray[i],line,i)); 
+                	//world.getWorld()[line][i] = 
+                	world.getWorldElement(line, i).setVisible(true);
                 }
                 line++;
             }
