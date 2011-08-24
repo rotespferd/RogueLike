@@ -19,6 +19,7 @@ package com.avancet.game.rougelike.blocks;
 
 import com.avancet.game.rougelike.blocks.Block;
 import java.awt.Color;
+import java.awt.Graphics;
 
 /**
  *
@@ -30,5 +31,11 @@ public class WallBlock extends Block{
         super(heightCord, widthCord);
         this.backgroundColor = Color.ORANGE;
         this.isSolid = true;
+    }
+    
+    @Override
+    protected void paintObject(int w, int h, Graphics g){
+    	super.paintObject(w, h, g);
+    	g.drawLine(w * size + 15, h * size + 17, w * size + size, h * size + size);
     }
 }
