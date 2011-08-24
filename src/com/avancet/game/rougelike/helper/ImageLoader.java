@@ -16,7 +16,7 @@ public class ImageLoader {
 	
 	private static File textureFile = new File("res/texture/block.png");
 	
-	public Image getTexture(int posH, int posW){
+	public static Image getTexture(int posH, int posW){
 		Image tex = null;
 		
 		if(!textureFile.exists()) System.out.println("File " + textureFile.getName() + " does not exist");
@@ -32,13 +32,13 @@ public class ImageLoader {
 		return tex;
 	}
 	
-	private Image cropImage(BufferedImage img, int posH, int posW){
+	private static Image cropImage(BufferedImage img, int posH, int posW){
 		Image returnImg = null;
 		
 		int size = GameObjectFactory.getBlockSize();
 		
 		//unter Link nachlesen: http://www.java-forum.org/awt-swing-swt/81034-bild-zuschneiden-cropping-cutting-clipping.html
-		CropImageFilter filter = new CropImageFilter(posH, posW, size, size);
+		CropImageFilter filter = new CropImageFilter(posW * size, posH * size, size, size);
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		
 		returnImg = tk.createImage(new FilteredImageSource(img.getSource(), filter));
