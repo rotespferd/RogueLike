@@ -29,6 +29,6 @@ public class WallBlock extends Block{
     public WallBlock(int heightCord, int widthCord){
         super(heightCord, widthCord);
         this.backgroundColor = Color.ORANGE;
-        this.isSolid = false;
+        this.isSolid = true;
     }
 }

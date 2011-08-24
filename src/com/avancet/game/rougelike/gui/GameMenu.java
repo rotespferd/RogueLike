@@ -108,7 +108,7 @@ public class GameMenu extends javax.swing.JFrame {
         license.setText("License under the GPL Version 3.");
         credits.add(license);
 
-        from.setText("from Marian Sievers, made with Java, Swing, Netbeans, Xubuntu");
+        from.setText("from Marian Sievers, made with Java, Swing, log4j, Eclipse, git, Gimp, Xubuntu");
         credits.add(from);
 
         getContentPane().add(credits, java.awt.BorderLayout.PAGE_END);

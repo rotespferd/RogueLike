@@ -21,6 +21,7 @@ import com.avancet.game.rougelike.GameWorld;
 import com.avancet.game.rougelike.basic.GameObject;
 import com.avancet.game.rougelike.basic.PhysicalObject;
 import com.avancet.game.rougelike.blocks.Block;
+import com.avancet.game.rougelike.blocks.BreakableWallBlock;
 import com.avancet.game.rougelike.blocks.WallBlock;
 
 import java.io.BufferedReader;
@@ -93,6 +94,7 @@ public class MapLoader {
     	PhysicalObject obj = null;
     	
     	if ('+' == symbol) obj = new WallBlock(height, width);
+    	else if ('-' == symbol) obj = new BreakableWallBlock(height, width);
     	else obj = new Block(height,width);
     	
     	return obj;
