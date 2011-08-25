@@ -18,4 +18,19 @@ public class Creatures extends PhysicalObject {
 	
 	//Beweglichkeit;
 	private int mobility;
+	
+	public Creatures(int heightCord, int widthCord){
+		super(heightCord, widthCord);
+	}
+	
+	public void setAttributes(int strength, int intelligence, int mobility){
+		this.strength = strength;
+		this.intelligence = intelligence;
+		this.mobility = mobility;
+	}
+	
+	public void setBasicData(String name, int age){
+		this.name = name;
+		this.age = age;
+	}
 }

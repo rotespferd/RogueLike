@@ -17,6 +17,8 @@
  */
 package com.avancet.game.rougelike.basic;
 
+import com.avancet.game.rougelike.creatures.Player;
+
 /**
  *
  * @author Marian Sievers
@@ -30,6 +32,8 @@ public class GameObjectFactory {
     private static String versionNumber = "0.02";
     
     private static String versionCodename = "Wallenhorst";  //Codename: A33 Anschlußstellen (siehe Wikipedia)
+    
+    private static Player player;
     
     public static int getId(){
         nextId++;
@@ -47,5 +51,13 @@ public class GameObjectFactory {
     public static String getVersionCodename() {
         return versionCodename;
     }
+
+	public static Player getPlayer() {
+		return player;
+	}
+
+	public static void setPlayer(Player player) {
+		GameObjectFactory.player = player;
+	}
     
 }
