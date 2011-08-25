@@ -79,4 +79,8 @@ public class GameMap extends JPanel {
         this.world = MapLoader.getGameWorldFromFIle(this.mapName + ".map");
     }
     
+    public GameWorld getGameWorld(){
+    	return this.world;
+    }
+    
 }

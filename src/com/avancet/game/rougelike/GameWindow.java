@@ -23,6 +23,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.avancet.game.rougelike.basic.GameObjectFactory;
+
 /**
  *
  * @author Marian Sievers
@@ -48,6 +50,8 @@ public class GameWindow extends JFrame {
         gamePanel.add(map);
         getContentPane().add(gamePanel);
         setVisible(true);
+        
+        addKeyListener(new GameKeyListener(GameObjectFactory.getPlayer(), map, this));
     }
     
 }
