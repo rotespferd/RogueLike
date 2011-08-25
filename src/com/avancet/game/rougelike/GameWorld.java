@@ -33,7 +33,18 @@ public class GameWorld {
     }
     
     public GameWorld(){
-    	
+    }
+    
+    public PhysicalObject[] getLineOfWorld(int height){
+    	return this.world[height];
+    }
+    
+    public PhysicalObject getWorldElement(int height, int width){
+    	return this.world[height][width];
+    }
+    
+    public void setWorldElement(int height, int width, PhysicalObject element){
+    	this.world[height][width] = element;
     }
 
     /**

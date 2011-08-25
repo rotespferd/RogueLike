@@ -19,9 +19,12 @@ package com.avancet.game.rougelike.helper;
 
 import com.avancet.game.rougelike.GameWorld;
 import com.avancet.game.rougelike.basic.GameObject;
+import com.avancet.game.rougelike.basic.GameObjectFactory;
 import com.avancet.game.rougelike.basic.PhysicalObject;
 import com.avancet.game.rougelike.blocks.Block;
+import com.avancet.game.rougelike.blocks.BreakableWallBlock;
 import com.avancet.game.rougelike.blocks.WallBlock;
+import com.avancet.game.rougelike.creatures.Player;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -73,8 +76,9 @@ public class MapLoader {
             while((next = buffer.readLine()) != null){
                 char[] lineArray = next.toCharArray();
                 for (int i = 0; i < width; i++){
-                	world.getWorld()[line][i] = parseSymbol(lineArray[i],line,i);
-                	world.getWorld()[line][i].setVisible(true);
+                	world.setWorldElement(line, i, parseSymbol(lineArray[i],line,i)); 
+                	//world.getWorld()[line][i] = 
+                	world.getWorldElement(line, i).setVisible(true);
                 }
                 line++;
             }
@@ -93,6 +97,9 @@ public class MapLoader {
     	PhysicalObject obj = null;
     	
     	if ('+' == symbol) obj = new WallBlock(height, width);
+    	else if ('-' == symbol) obj = new BreakableWallBlock(height, width);
+    	else if ('_' == symbol) { obj = new BreakableWallBlock(height, width); ((BreakableWallBlock) obj).breakWall(); }	//Schon zerstörte Mauer.
+    	else if ('@' == symbol) { obj = new Player(height, width); GameObjectFactory.setPlayer((Player) obj);}
     	else obj = new Block(height,width);
     	
     	return obj;
