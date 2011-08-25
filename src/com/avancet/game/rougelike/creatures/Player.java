@@ -8,5 +8,7 @@ public class Player extends Creatures {
 	private Race race;
 	
 	private HumanClass mainClass;
+	
+	
 
 }

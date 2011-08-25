@@ -17,7 +17,7 @@ public class BreakableWallBlock extends WallBlock {
 	
 	public void breakWall(){
 		this.isSolid = false;
-		this.backgroundColor = Color.DARK_GRAY;
+		this.texPos[1] = 2;
 	}
 	
 	@Override
