@@ -16,13 +16,15 @@ public class ImageLoader {
 	
 	private static File textureFile = new File("res/texture/block.png");
 	
+	private static BufferedImage buffImg = null;
+	
 	public static Image getTexture(int posH, int posW){
 		Image tex = null;
 		
 		if(!textureFile.exists()) System.out.println("File " + textureFile.getName() + " does not exist");
 		
 		try {
-			BufferedImage buffImg = ImageIO.read(textureFile);
+			if(buffImg == null) buffImg = ImageIO.read(textureFile);
 			tex = cropImage(buffImg, posH, posW);
 		} catch (IOException e) {
 			e.printStackTrace();

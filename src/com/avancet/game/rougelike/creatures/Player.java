@@ -42,6 +42,9 @@ public class Player extends Creatures {
 		}
 		this.setCordH(newH);
 		this.setCordW(newW);
+		
+		//altes Objekt speichern und später neu Zeichnen
+		map.getGameWorld().setWorldElement(newH, newW, this);
 		System.out.println("Move Player!");
 		
 	}
