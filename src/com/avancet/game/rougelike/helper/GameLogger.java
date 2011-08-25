@@ -7,7 +7,7 @@ public class GameLogger {
 	
 	private static Logger logger = null;
 
-	public Logger getLogger(){
+	public static Logger getLogger(){
 		if(logger == null){
 			logger  = Logger.getLogger(GameLogger.class);
 			PropertyConfigurator.configureAndWatch("config/log4j.properties", 2000);

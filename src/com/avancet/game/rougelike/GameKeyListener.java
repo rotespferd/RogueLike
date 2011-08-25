@@ -8,6 +8,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
 import com.avancet.game.rougelike.creatures.Player;
+import com.avancet.game.rougelike.helper.GameLogger;
 
 public class GameKeyListener implements KeyListener, KeyEventDispatcher {
 	
@@ -37,6 +38,7 @@ public class GameKeyListener implements KeyListener, KeyEventDispatcher {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		GameLogger.getLogger().info("Key " + e.getKeyChar() + " was pressed");
 		if(e.getKeyChar() == 'w') player.movePlayer("UP", map);
 		else if(e.getKeyChar() == 's') player.movePlayer("DOWN", map);
 		else if(e.getKeyChar() == 'a') player.movePlayer("LEFT", map);
