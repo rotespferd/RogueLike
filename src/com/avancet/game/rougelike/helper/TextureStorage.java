@@ -30,12 +30,12 @@ public class TextureStorage {
 		
 		//Datei erstellen: Blockname=posw,posh
 		
+		texStore = new HashMap<String, Image>();
+		
 		String[][] code = loadTexCodeFile("res/texture/textureCode.code");
 		
-		for(int h = 0; h < MAXH; h++){
-			for(int w = 0; w < MAXW; w++){
-				
-			}
+		for (String[] strings : code) {
+			texStore.put(strings[0], ImageLoader.getTexture(Integer.parseInt(strings[1]), Integer.parseInt(strings[2])));
 		}
 	}
 	
