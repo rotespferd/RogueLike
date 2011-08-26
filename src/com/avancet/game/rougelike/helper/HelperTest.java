@@ -14,6 +14,7 @@ public class HelperTest {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MapLoader.getGameWorldFromFIle("map1.map");
+        //MapLoader.getGameWorldFromFIle("map1.map");
+    	TextureStorage.getTexture("bla");
     }
 }

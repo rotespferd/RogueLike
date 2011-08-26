@@ -10,6 +10,8 @@
  */
 package com.avancet.game.rougelike.gui;
 
+import javax.swing.JFrame;
+
 import com.avancet.game.rougelike.basic.GameObjectFactory;
 import com.avancet.game.rougelike.helper.GameLogger;
 
@@ -17,7 +19,7 @@ import com.avancet.game.rougelike.helper.GameLogger;
  *
  * @author marian
  */
-public class GameMenu extends javax.swing.JFrame {
+public class GameMenu extends JFrame {
 
     /** Creates new form GameMenu */
     public GameMenu() {
