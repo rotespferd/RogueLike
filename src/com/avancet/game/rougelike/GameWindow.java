@@ -24,6 +24,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.avancet.game.rougelike.basic.GameObjectFactory;
+import com.avancet.game.rougelike.helper.GameLogger;
 
 /**
  *
@@ -35,8 +36,13 @@ public class GameWindow extends JFrame {
     
     public GameWindow(){
         super("RougeLike");
+    	GameLogger.getLogger().info("Start init the GameWindow");
+    	
+
+    	GameLogger.getLogger().info("Read the GameMap from file map2");
         map = new GameMap("map2");
         
+        GameLogger.getLogger().info("Create the JFrame");
         JPanel gamePanel = new JPanel();
         gamePanel.setLayout(new BoxLayout(gamePanel,BoxLayout.Y_AXIS));
         //setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -51,6 +57,7 @@ public class GameWindow extends JFrame {
         getContentPane().add(gamePanel);
         setVisible(true);
         
+        GameLogger.getLogger().info("Add the KeyListener");
         addKeyListener(new GameKeyListener(GameObjectFactory.getPlayer(), map, this));
     }
     

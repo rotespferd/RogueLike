@@ -21,13 +21,14 @@ public class ImageLoader {
 	public static Image getTexture(int posH, int posW){
 		Image tex = null;
 		
-		if(!textureFile.exists()) System.out.println("File " + textureFile.getName() + " does not exist");
+		if(!textureFile.exists()) GameLogger.getLogger().warn("File " + textureFile.getName() + " does not exist");
 		
 		try {
+			GameLogger.getLogger().info("Read the texture-file");
 			if(buffImg == null) buffImg = ImageIO.read(textureFile);
 			tex = cropImage(buffImg, posH, posW);
 		} catch (IOException e) {
-			e.printStackTrace();
+			GameLogger.getLogger().error("There is a IOException", e);
 		}
 		
 		
@@ -35,6 +36,7 @@ public class ImageLoader {
 	}
 	
 	private static Image cropImage(BufferedImage img, int posH, int posW){
+		GameLogger.getLogger().debug("Cropping the texture with height=" + posH + " and width=" + posW);
 		Image returnImg = null;
 		
 		int size = GameObjectFactory.getBlockSize();

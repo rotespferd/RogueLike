@@ -42,12 +42,13 @@ import java.util.logging.Logger;
 public class MapLoader {
     
     public static GameWorld getGameWorldFromFIle(String filename){
+    	GameLogger.getLogger().info("Start loading the map from file=" + filename);
         GameWorld world = null;
         
         File mapFIle = new File("res/" + filename);
         
         if(!mapFIle.exists()){
-            System.out.println("File does not exist");
+        	GameLogger.getLogger().warn("File does not exist");
             return null;
         }
         try {
@@ -55,13 +56,14 @@ public class MapLoader {
             BufferedReader buffer = new BufferedReader(reader);
             
             //Laden der Hoehe und Breite
+            GameLogger.getLogger().info("Read height and width");
             String zeile1 = buffer.readLine();
             String[] splitZ1 = zeile1.split(",");
             
             int height = Integer.parseInt(splitZ1[0].split(":")[1]);
             int width = Integer.parseInt(splitZ1[1].split(":")[1]);
             
-            System.out.println("Height: " + height + ", Width: " + width);
+            GameLogger.getLogger().info("Read the height=" + height + "and width=" + width + " from file");
             
             world = new GameWorld(width, height);
             
@@ -76,6 +78,7 @@ public class MapLoader {
             while((next = buffer.readLine()) != null){
                 char[] lineArray = next.toCharArray();
                 for (int i = 0; i < width; i++){
+                	GameLogger.getLogger().info("Parse line=" + line + " and width=" + i);
                 	world.setWorldElement(line, i, parseSymbol(lineArray[i],line,i)); 
                 	//world.getWorld()[line][i] = 
                 	world.getWorldElement(line, i).setVisible(true);
@@ -85,9 +88,9 @@ public class MapLoader {
             
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(MapLoader.class.getName()).log(Level.SEVERE, null, ex);
+        	GameLogger.getLogger().error("The file does not exist", ex);
         } catch(IOException ex){
-             Logger.getLogger(MapLoader.class.getName()).log(Level.SEVERE, null, ex);
+        	GameLogger.getLogger().error("There is a IOError", ex);
         }
         
         return world;
@@ -95,6 +98,8 @@ public class MapLoader {
     
     private static PhysicalObject parseSymbol(char symbol, int height, int width){
     	PhysicalObject obj = null;
+    	
+    	GameLogger.getLogger().info("parsing the symbol=" + symbol);
     	
     	if ('+' == symbol) obj = new WallBlock(height, width);
     	else if ('-' == symbol) obj = new BreakableWallBlock(height, width);

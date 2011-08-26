@@ -3,6 +3,7 @@ package com.avancet.game.rougelike.blocks;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.avancet.game.rougelike.helper.GameLogger;
 import com.avancet.game.rougelike.helper.ImageLoader;
 
 public class BreakableWallBlock extends WallBlock {
@@ -18,6 +19,7 @@ public class BreakableWallBlock extends WallBlock {
 	public void breakWall(){
 		this.isSolid = false;
 		this.texPos[1] = 2;
+		GameLogger.getLogger().info("Break the wall");
 	}
 	
 	@Override

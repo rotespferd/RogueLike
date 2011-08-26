@@ -6,6 +6,7 @@ import com.avancet.game.rougelike.GameMap;
 import com.avancet.game.rougelike.blocks.Block;
 import com.avancet.game.rougelike.creatures.misc.HumanClass;
 import com.avancet.game.rougelike.creatures.misc.Race;
+import com.avancet.game.rougelike.helper.GameLogger;
 import com.avancet.game.rougelike.helper.ImageLoader;
 
 public class Player extends Creatures {
@@ -18,6 +19,7 @@ public class Player extends Creatures {
 	
 	public Player(int heightCord, int widthCord){
 		super(heightCord, widthCord);
+		GameLogger.getLogger().info("Init the player with name=" + this.getName());
 	}
 	
 	@Override

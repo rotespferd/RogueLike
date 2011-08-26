@@ -20,6 +20,8 @@ package com.avancet.game.rougelike.basic;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.avancet.game.rougelike.helper.GameLogger;
+
 /**
  *
  * @author Marian Sievers
@@ -56,7 +58,7 @@ public class PhysicalObject extends GameObject implements Visible {
     protected void paintObject(int w, int h, Graphics g) {
         //just temporary
         g.drawRect(w * size + 15, h * size + 15, size, size);
-        System.out.println("paint " + this);
+        GameLogger.getLogger().warn("Create a PhysicalObject with id=" + this.getId());
     }
 
     protected  void erase(int w, int h, Graphics g) {
