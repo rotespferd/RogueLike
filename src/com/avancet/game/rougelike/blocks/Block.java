@@ -18,6 +18,8 @@
 package com.avancet.game.rougelike.blocks;
 
 import com.avancet.game.rougelike.basic.PhysicalObject;
+import com.avancet.game.rougelike.helper.TextureStorage;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -49,10 +51,11 @@ public class Block extends PhysicalObject{
     @Override
     protected void paintObject(int w, int h, Graphics g){
         //super.paintObject(w, h, g);
-        g.setColor(getBackgroundColor());
+        /*g.setColor(getBackgroundColor());
         g.fillRect(w * size + 15, h * size + 15, size, size);
         g.setColor(Color.BLACK);
-        g.drawRect(w * size + 15, h * size + 15, size, size);
+        g.drawRect(w * size + 15, h * size + 15, size, size);*/
+    	g.drawImage(TextureStorage.getTexture("Block"), w * size + 15, h * size + 15, null);
     }
 
     /**

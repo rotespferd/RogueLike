@@ -3,11 +3,13 @@ package com.avancet.game.rougelike.blocks;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import com.avancet.game.rougelike.helper.GameLogger;
 import com.avancet.game.rougelike.helper.ImageLoader;
+import com.avancet.game.rougelike.helper.TextureStorage;
 
 public class BreakableWallBlock extends WallBlock {
 	
-	protected int[] texPos = {0,1};
+	private String code = "BreakableWallBlock";
 
 	public BreakableWallBlock(int heightCord, int widthCord) {
 		super(heightCord, widthCord);
@@ -17,14 +19,15 @@ public class BreakableWallBlock extends WallBlock {
 	
 	public void breakWall(){
 		this.isSolid = false;
-		this.texPos[1] = 2;
+		this.code = "BreakableWallBlockBroken";
+		GameLogger.getLogger().info("Break the wall");
 	}
 	
 	@Override
     protected void paintObject(int w, int h, Graphics g){
     	super.paintObject(w, h, g);
     	//g.drawLine(w * size + 15, h * size + 17, w * size + size, h * size + size);
-    	g.drawImage(ImageLoader.getTexture(this.texPos[0], this.texPos[1]), w * size + 15, h * size + 15, null);
+    	g.drawImage(TextureStorage.getTexture(this.code), w * size + 15, h * size + 15, null);
     }
 
 }

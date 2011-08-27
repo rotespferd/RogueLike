@@ -18,6 +18,7 @@
 package com.avancet.game.rougelike;
 
 import com.avancet.game.rougelike.basic.PhysicalObject;
+import com.avancet.game.rougelike.helper.GameLogger;
 
 /**
  *
@@ -26,6 +27,7 @@ import com.avancet.game.rougelike.basic.PhysicalObject;
 public class Game {
 
     public static void main(String[] args) {
+    	GameLogger.getLogger().info("Start the game");
         GameWindow window = new GameWindow();
     }
 }

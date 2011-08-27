@@ -1,0 +1,5 @@
+WallBlock=0,0
+BreakableWallBlock=0,1
+BreakableWallBlockBroken=0,2
+Block=0,3
+Player=1,0

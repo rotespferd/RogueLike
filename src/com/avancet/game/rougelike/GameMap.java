@@ -21,6 +21,8 @@ import com.avancet.game.rougelike.blocks.WallBlock;
 import com.avancet.game.rougelike.basic.GameObjectFactory;
 import com.avancet.game.rougelike.basic.PhysicalObject;
 import com.avancet.game.rougelike.blocks.Block;
+import com.avancet.game.rougelike.creatures.Player;
+import com.avancet.game.rougelike.helper.GameLogger;
 import com.avancet.game.rougelike.helper.MapLoader;
 
 import java.awt.Color;
@@ -43,17 +45,19 @@ public class GameMap extends JPanel {
     
     public final int BLOCKSIZE = GameObjectFactory.getBlockSize();
     
-    public GameMap(int width, int height, String mapName){
+    //Manuell anlegen
+    public GameMap(int width, int height){
         super();
+        GameLogger.getLogger().info("Create GameMap with width=" + this.width + "and height=" + this.height);
         this.width = width;
         this.height = height;
-        this.mapName = mapName;
         this.world = new GameWorld(this.width, this.height);
-        init();
     }
     
+    //Aus Datei auslesen
     public GameMap(String mapName){
     	super();
+    	GameLogger.getLogger().info("Create GameMap with file=" + this.mapName);
     	this.mapName = mapName;
     	init();
     	this.width = this.world.getWorld().length;
@@ -63,6 +67,7 @@ public class GameMap extends JPanel {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponents(g);
+        GameLogger.getLogger().info("Start painting the GameMap");
         g.drawRect(5, 5, 10 + this.height * BLOCKSIZE + 10, 10 + this.width * BLOCKSIZE + 10); //+10 an jeder Seite wegen Abstand
         
         for(int h = 0; h < world.getWorld().length;h++){
@@ -73,10 +78,22 @@ public class GameMap extends JPanel {
                 //Später ersetzen durch Zeichenmethode der einzelnen Blocks. ALs Parameter Position übergeben, wie oben.
             }
         }
+        GameLogger.getLogger().info("Paint the player");
+        GameObjectFactory.getPlayer().paint(g);
+        GameLogger.getLogger().info("End painting the GameMap.");
     }
     
     private void init() {
+    	GameLogger.getLogger().info("Init with loading from file");
         this.world = MapLoader.getGameWorldFromFIle(this.mapName + ".map");
+        GameLogger.getLogger().info("Init the player");
+        Player player = new Player(1, 1);
+        player.setVisible(true);
+        GameObjectFactory.setPlayer(player);
+    }
+    
+    public GameWorld getGameWorld(){
+    	return this.world;
     }
     
 }

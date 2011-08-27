@@ -19,6 +19,7 @@ package com.avancet.game.rougelike;
 
 import com.avancet.game.rougelike.basic.GameObject;
 import com.avancet.game.rougelike.basic.PhysicalObject;
+import com.avancet.game.rougelike.helper.GameLogger;
 
 /**
  *
@@ -29,6 +30,7 @@ public class GameWorld {
     private PhysicalObject[][] world;
     
     public GameWorld(int width, int height){
+    	GameLogger.getLogger().info("Init the GameWorld");
         world = new PhysicalObject[height][width];
     }
     

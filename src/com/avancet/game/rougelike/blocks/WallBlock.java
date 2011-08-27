@@ -19,6 +19,7 @@ package com.avancet.game.rougelike.blocks;
 
 import com.avancet.game.rougelike.blocks.Block;
 import com.avancet.game.rougelike.helper.ImageLoader;
+import com.avancet.game.rougelike.helper.TextureStorage;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -41,6 +42,7 @@ public class WallBlock extends Block{
     protected void paintObject(int w, int h, Graphics g){
     	super.paintObject(w, h, g);
     	//g.drawLine(w * size + 15, h * size + 17, w * size + size, h * size + size);
-    	g.drawImage(ImageLoader.getTexture(this.texPos[0], this.texPos[1]), w * size + 15, h * size + 15, null);
+    	//Texture nur einmal laden und irgendwo speichern
+    	g.drawImage(TextureStorage.getTexture("WallBlock"), w * size + 15, h * size + 15, null);
     }
 }
