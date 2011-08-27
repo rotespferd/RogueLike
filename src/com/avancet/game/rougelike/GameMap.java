@@ -21,6 +21,7 @@ import com.avancet.game.rougelike.blocks.WallBlock;
 import com.avancet.game.rougelike.basic.GameObjectFactory;
 import com.avancet.game.rougelike.basic.PhysicalObject;
 import com.avancet.game.rougelike.blocks.Block;
+import com.avancet.game.rougelike.creatures.Player;
 import com.avancet.game.rougelike.helper.GameLogger;
 import com.avancet.game.rougelike.helper.MapLoader;
 
@@ -77,12 +78,18 @@ public class GameMap extends JPanel {
                 //Später ersetzen durch Zeichenmethode der einzelnen Blocks. ALs Parameter Position übergeben, wie oben.
             }
         }
+        GameLogger.getLogger().info("Paint the player");
+        GameObjectFactory.getPlayer().paint(g);
         GameLogger.getLogger().info("End painting the GameMap.");
     }
     
     private void init() {
     	GameLogger.getLogger().info("Init with loading from file");
         this.world = MapLoader.getGameWorldFromFIle(this.mapName + ".map");
+        GameLogger.getLogger().info("Init the player");
+        Player player = new Player(1, 1);
+        player.setVisible(true);
+        GameObjectFactory.setPlayer(player);
     }
     
     public GameWorld getGameWorld(){

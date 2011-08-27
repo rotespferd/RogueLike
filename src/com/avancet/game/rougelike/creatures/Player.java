@@ -16,18 +16,18 @@ public class Player extends Creatures {
 	
 	private HumanClass mainClass;
 	
-	protected int[] texPos = {1,0};
-	
 	public Player(int heightCord, int widthCord){
 		super(heightCord, widthCord);
 		GameLogger.getLogger().info("Init the player with name=" + this.getName());
 	}
 	
-	@Override
-    protected void paintObject(int w, int h, Graphics g){
-    	super.paintObject(w, h, g);
+	public void paint(Graphics g){
+		if(this.isVisible()) paintObject(g);
+	}
+	
+    private void paintObject(Graphics g){
     	//g.drawLine(w * size + 15, h * size + 17, w * size + size, h * size + size);
-    	g.drawImage(TextureStorage.getTexture("Player"), w * size + 15, h * size + 15, null);
+    	g.drawImage(TextureStorage.getTexture("Player"), this.getCordW() * size + 15, this.getCordH() * size + 15, null);
     }
 	
 	public void movePlayer(String direction, GameMap map){
@@ -46,8 +46,6 @@ public class Player extends Creatures {
 		this.setCordH(newH);
 		this.setCordW(newW);
 		
-		//altes Objekt speichern und später neu Zeichnen
-		map.getGameWorld().setWorldElement(newH, newW, this);
 		System.out.println("Move Player!");
 		
 	}

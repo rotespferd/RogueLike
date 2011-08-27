@@ -104,7 +104,6 @@ public class MapLoader {
     	if ('+' == symbol) obj = new WallBlock(height, width);
     	else if ('-' == symbol) obj = new BreakableWallBlock(height, width);
     	else if ('_' == symbol) { obj = new BreakableWallBlock(height, width); ((BreakableWallBlock) obj).breakWall(); }	//Schon zerstörte Mauer.
-    	else if ('@' == symbol) { obj = new Player(height, width); GameObjectFactory.setPlayer((Player) obj);}
     	else obj = new Block(height,width);
     	
     	return obj;
