@@ -29,9 +29,9 @@ public class GameObjectFactory {
     
     private static int blockSize = 50;
     
-    private static String versionNumber = "0.04";
+    private static String versionNumber = "0.05";
     
-    private static String versionCodename = "Belm";  //Codename: A33 Anschlußstellen (siehe Wikipedia)
+    private static String versionCodename = "Osnabrück-Schinkel";  //Codename: A33 Anschlußstellen (siehe Wikipedia)
     
     private static Player player;
     
