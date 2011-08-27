@@ -4,6 +4,8 @@
  */
 package com.avancet.game.rougelike.helper;
 
+import java.awt.Image;
+
 /**
  *
  * @author marian
@@ -15,6 +17,6 @@ public class HelperTest {
      */
     public static void main(String[] args) {
         //MapLoader.getGameWorldFromFIle("map1.map");
-    	TextureStorage.getTexture("bla");
+    	Image i = TextureStorage.getTexture("bla");
     }
 }

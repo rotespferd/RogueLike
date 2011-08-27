@@ -33,14 +33,16 @@ public class TextureStorage {
 		texStore = new HashMap<String, Image>();
 		
 		String[][] code = loadTexCodeFile("res/texture/textureCode.code");
+		GameLogger.getLogger().debug(code.length);
 		
 		for (String[] strings : code) {
+			if(strings[0] == null) continue;
 			texStore.put(strings[0], ImageLoader.getTexture(Integer.parseInt(strings[1]), Integer.parseInt(strings[2])));
 		}
 	}
 	
 	private static String[][] loadTexCodeFile(String filename){
-		String[][] out = new String[MAXW+MAXH][3];
+		String[][] out = new String[MAXW*MAXH][3];
 		File codeFile = new File(filename);
 		
 		GameLogger.getLogger().info("Loading file with tex-code");
