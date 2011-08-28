@@ -17,6 +17,11 @@ public class BreakableWallBlock extends WallBlock {
 		this.isSolid = true;
 	}
 	
+	@Override
+	public void collisionAction(){
+		this.breakWall();
+	}
+	
 	public void breakWall(){
 		this.isSolid = false;
 		this.code = "BreakableWallBlockBroken";

@@ -40,7 +40,10 @@ public class Player extends Creatures {
 	private void validateAndMovePlayer(GameMap map, int newW, int newH){
 		
 		if(newW < 0 || newH < 0) return;
+		
+		
 		if(map.getGameWorld().getWorldElement(newH, newW) instanceof Block){
+			map.getGameWorld().getWorldElement(newH, newW).collisionAction();
 			if(((Block) map.getGameWorld().getWorldElement(newH, newW)).isIsSolid()) return;
 		}
 		this.setCordH(newH);

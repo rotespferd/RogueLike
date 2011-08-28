@@ -45,6 +45,10 @@ public class PhysicalObject extends GameObject implements Visible {
         this.cordH = heightCord;
         this.cordW = widthCord;
     }
+    
+    public void collisionAction(){
+    	
+    }
 
     @Override
     public void paint(Graphics g) {

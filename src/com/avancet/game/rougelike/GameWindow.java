@@ -40,7 +40,7 @@ public class GameWindow extends JFrame {
     	
 
     	GameLogger.getLogger().info("Read the GameMap from file map2");
-        map = new GameMap("map2");
+        map = new GameMap("map3");
         
         GameLogger.getLogger().info("Create the JFrame");
         JPanel gamePanel = new JPanel();
