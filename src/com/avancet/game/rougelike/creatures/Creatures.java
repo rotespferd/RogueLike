@@ -23,6 +23,14 @@ public class Creatures extends PhysicalObject {
 		super(heightCord, widthCord);
 	}
 	
+	public void attack(Creatures enemy){
+		
+	}
+	
+	public void defend(Creatures attacker){
+		
+	}
+	
 	public void setAttributes(int strength, int intelligence, int mobility){
 		this.strength = strength;
 		this.intelligence = intelligence;
