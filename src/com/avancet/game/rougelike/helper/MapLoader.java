@@ -24,6 +24,7 @@ import com.avancet.game.rougelike.basic.PhysicalObject;
 import com.avancet.game.rougelike.blocks.Block;
 import com.avancet.game.rougelike.blocks.BreakableWallBlock;
 import com.avancet.game.rougelike.blocks.WallBlock;
+import com.avancet.game.rougelike.creatures.Blober;
 import com.avancet.game.rougelike.creatures.Player;
 
 import java.io.BufferedReader;
@@ -104,6 +105,7 @@ public class MapLoader {
     	if ('+' == symbol) obj = new WallBlock(height, width);
     	else if ('-' == symbol) obj = new BreakableWallBlock(height, width);
     	else if ('_' == symbol) { obj = new BreakableWallBlock(height, width); ((BreakableWallBlock) obj).breakWall(); }	//Schon zerstörte Mauer.
+    	else if ('o' == symbol) obj = new Blober(height, width);
     	else obj = new Block(height,width);
     	
     	return obj;

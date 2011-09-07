@@ -30,6 +30,7 @@ public class PhysicalObject extends GameObject implements Visible {
 
     private boolean visible;
     private String name;
+    protected boolean isSolid;
     
     private int cordH;
     private int cordW;
@@ -128,4 +129,12 @@ public class PhysicalObject extends GameObject implements Visible {
     public void setCordW(int cordW) {
         this.cordW = cordW;
     }
+
+	public boolean isSolid() {
+		return isSolid;
+	}
+
+	public void setSolid(boolean isSolid) {
+		this.isSolid = isSolid;
+	}
 }

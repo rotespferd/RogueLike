@@ -87,8 +87,12 @@ public class GameMap extends JPanel {
     	GameLogger.getLogger().info("Init with loading from file");
         this.world = MapLoader.getGameWorldFromFIle(this.mapName + ".map");
         GameLogger.getLogger().info("Init the player");
+        
         Player player = new Player(1, 1);
+        player.setBasicData("Player", 21, 18);
+        player.setAttributes(8, 5, 6);
         player.setVisible(true);
+        
         GameObjectFactory.setPlayer(player);
     }
     

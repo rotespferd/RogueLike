@@ -31,12 +31,9 @@ public class Block extends PhysicalObject{
  
     protected Color backgroundColor;
     
-    protected boolean isSolid;
-    
     public Block(int heightCord, int widthCord){
         super(heightCord, widthCord);
         this.backgroundColor = Color.LIGHT_GRAY;
-        this.isSolid = false;
     }
     
 //    @Override
@@ -72,17 +69,4 @@ public class Block extends PhysicalObject{
         this.backgroundColor = backgroundColor;
     }
 
-    /**
-     * @return the isSolid
-     */
-    public boolean isIsSolid() {
-        return isSolid;
-    }
-
-    /**
-     * @param isSolid the isSolid to set
-     */
-    public void setIsSolid(boolean isSolid) {
-        this.isSolid = isSolid;
-    }
 }
